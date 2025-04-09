@@ -55,7 +55,7 @@
 							{{ article.isPublished ? 'Oui' : 'Non' }}
 						</td>
 						<td>
-							{{ article.author.username }}
+							{{ article.author ? article.author.username : 'Aucun auteur' }}
 						</td>
 						<td>
 							<a href="{{ path('article_remove', {'id': article.id}) }}" role="button" class="btn btn-danger">Supprimer</a>

@@ -23,8 +23,11 @@ class Article
     #[ORM\Column]
     private ?bool $isPublished = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $publishedAt = null;
+
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    private ?User $author = null;
 
     public function getId(): ?int
     {
@@ -78,4 +81,16 @@ class Article
 
         return $this;
     }
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+    
+        return $this;
+    }
+    
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
 }
