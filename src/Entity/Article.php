@@ -24,7 +24,7 @@ class Article
     #[ORM\Column]
     private ?bool $isPublished = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $publishedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
