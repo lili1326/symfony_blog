@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use App\Entity\Article;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
@@ -33,6 +36,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Article::class)]
+    private Collection $articles;
+
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+private ?User $author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,7 +58,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
+    
     /**
      * A visual identifier that represents this user.
      *
@@ -107,4 +116,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+    public function getAuthor(): ?User
+{
+    return $this->author;
+}
+
+public function setAuthor(?User $author): static
+{
+    $this->author = $author;
+
+    return $this;
+}
 }
