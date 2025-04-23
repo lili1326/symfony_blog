@@ -80,6 +80,11 @@ php -S 127.0.0.1:8000 -t public
 
 ---
 
+## Schéma de la base de données
+
+La base de données relationnelle a été conçue avec MySQL Workbench, en s'appuyant sur les entités User, Article, et Category.
+![Schéma BDD](symfony_blogs/diagramme.png)
+
 ## Fonctionnalités
 
 - Page d’accueil listant les derniers articles
@@ -92,18 +97,19 @@ php -S 127.0.0.1:8000 -t public
 
 ## Compétences mises en œuvre (DWWM)
 
-| Bloc   | Compétence                                                   |
-| ------ | ------------------------------------------------------------ |
-| Bloc 2 | Créer une base de données relationnelle avec MySQL Workbench |
-| Bloc 2 | Développer des composants métier côté serveur                |
-| Bloc 2 | Accès aux données avec Doctrine (SQL)                        |
-| Bloc 1 | Intégrer une interface avec Twig (HTML/CSS)                  |
+| Bloc   | Compétence                                                              |
+| ------ | ----------------------------------------------------------------------- |
+| Bloc 2 | Créer une base de données relationnelle avec MySQL Workbench            |
+| Bloc 2 | Développer des composants métier côté serveur                           |
+| Bloc 2 | Accès aux données avec Doctrine (SQL)                                   |
+| bloc 2 | Documenter le déploiement d'une application dynamique web via un README |
+| Bloc 1 | Intégrer une interface avec Twig (HTML/CSS)                             |
 
 ---
 
 ## Auteur
 
-Aurélie [Ton Nom ici]  
+Aurélie  
 Projet réalisé dans le cadre du **titre professionnel DWWM**
 
 ---
