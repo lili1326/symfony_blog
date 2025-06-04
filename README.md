@@ -19,7 +19,7 @@ C'est un projet réalisé dans le cadre de ma formation **Développeur Web et We
 - Twig (moteur de templates)
 - Doctrine ORM
 - MySQL / MariaDB
-- **MySQL Workbench** (outil de gestion de base de données)
+- **MySQL phpmyadmin** (outil de gestion de base de données)
 - Bootstrap 5 (interface)
 - Composer
 - Git / GitHub
@@ -43,7 +43,7 @@ composer install
 
 ### 3. Configurer la base de données
 
-- Ouvre **MySQL Workbench**
+- Ouvre **MySQL phpMyAdmin**
 - Crée une base de données (ex : `symfony_blog`)
 - Récupère les informations de connexion (utilisateur, mot de passe)
 
@@ -72,6 +72,7 @@ php bin/console doctrine:migrations:migrate
 symfony server:start
 ```
 
+![Schéma BDD](symfony_blogs/diagramme.png)
 ou avec PHP natif :
 
 ```bash
